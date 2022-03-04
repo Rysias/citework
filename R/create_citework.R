@@ -11,12 +11,14 @@ calc_nodesize_ <-
   }
 
 edges_to_citework <-
-  function(edge_df, size_func = igraph::page_rank) {
+  function(edge_df,
+           size_func = igraph::page_rank,
+           min_size = 10) {
     network_igraph <- igraph::graph_from_data_frame(edge_df)
     d3_graph <-
-      networkD3::igraph_to_networkD3(network_igraph, group = rep(1, 13))
+      networkD3::igraph_to_networkD3(network_igraph, group = rep(1, igraph::gorder(network_igraph)))
     d3_graph$nodes <- d3_graph$nodes %>%
-      mutate(size = calc_nodesize_(network_igraph, size_func = size_func))
+      mutate(size = calc_nodesize_(network_igraph, size_func = size_func, min_size = min_size))
 
     networkD3::forceNetwork(
       d3_graph$links,
