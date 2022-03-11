@@ -16,6 +16,14 @@ test_that("extracting tricky DOI 2", {
   expect_equal(extract_doi(cite_string),"10.17605/OSF.IO/WNC68")
 })
 
+test_that("extracting lower case also", {
+  cite_string <-
+    "Polka, L., Orena, A. J., Sundara, M. and Worrall, J. (2017), Segmenting words from fluent speech during infancy – challenges and opportunities in a bilingual context. Developmental Science, 20: e12419. doi:10.1111/desc.12419"
+  expect_equal(extract_doi(cite_string), "10.1111/desc.12419")
+})
+
+
+
 
 test_that("extracting DOI vector", {
   cite_string1 <- "Ramscar, M., Dye, M., & Klein, J. (2013). Children Value Informativity Over Logic in Word Learning. Psychological Science, 24(6), 1017–1023. https://doi.org/10.1177/0956797612460691"

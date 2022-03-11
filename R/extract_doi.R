@@ -1,6 +1,4 @@
 extract_doi <- function(cite_string) {
-  doi_pattern1 <- "(?<=https://doi.org/)(.+)"
-  doi_pattern2 <- "(?<=DOI:? )(.+)"
-  doi_pattern <- paste0(doi_pattern1, "|", doi_pattern2)
+  doi_pattern <- "(10\\.\\d{4,5}\\/[\\S]+[^;,.\\s])"
   stringr::str_extract(cite_string, doi_pattern)
 }
