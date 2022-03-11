@@ -10,7 +10,11 @@ test_that("extracting tricky DOI", {
   expect_equal(extract_doi(cite_string), "10.1080/15475441.2013.876270")
 })
 
-""
+test_that("extracting tricky DOI 2", {
+  cite_string <-
+    "Seidl, A., Schmale, R., & Cristia, A. (2019, February 13). Cross-accent word recognition in 9-month-olds after exposure to variable speakers. Retrieved from osf.io/wnc68. DOI 10.17605/OSF.IO/WNC68"
+  expect_equal(extract_doi(cite_string),"10.17605/OSF.IO/WNC68")
+})
 
 
 test_that("extracting DOI vector", {
