@@ -12,7 +12,9 @@ LazyData: true
 Imports: 
   stringr,
   httr,
-  tidyr
+  tidyr,
+  igraph,
+  tidygraph
 Suggests: 
   testthat (>= 3.0.0)
 Config/testthat/edition: 3
