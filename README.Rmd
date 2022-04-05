@@ -45,5 +45,6 @@ network
 ## TODO
 - [] Add roxygen2-style documentation to functions (Crucial)
 - [] Refactor to more SOLID
+- [] Fix igraph dependency
 - [] OPTIONAL:Change backend to tidygraph? (easier analysis)
 
