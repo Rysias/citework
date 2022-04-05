@@ -1,0 +1,49 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+options(tibble.print_min = 5, tibble.print_max = 5)
+```
+
+# citework
+
+## Overview
+citework is a package for creating citation networks from lists of DOI's. It has a set of function for doing the entire pipeline end-to-end. The main workhorse is `direct_citation` which does the entire shebang namely: 
+1. Extracts references from the DOI's using the semantic scholar API
+2. Transforms the data into a edge-list type dataframe
+
+
+## Installation
+This package can be installed from github using `devtools`:
+```{r, message = FALSE}
+devtools::install_github("Rysias/citework")
+```
+
+NB: This package doesn't use formal version control (as of yet) so you always download the "development" version
+## Usage
+```{r, message = FALSE}
+library(citework)
+library(tidyverse)
+library(networkD3)
+dat <- read_csv("path/to/doi_dat.csv")
+# Extracts the citations
+edgelist <- citework::direct_citation(dat$study_name, dat$doi)
+# Plot the graph in a very simple way
+network <- citework::edges_to_citework(edgelist)
+network
+```
+
+## TODO
+- [] Add roxygen2-style documentation to functions (Crucial)
+- [] Refactor to more SOLID
+- [] OPTIONAL:Change backend to tidygraph? (easier analysis)
+
