@@ -3,9 +3,8 @@ Type: Package
 Title: What the Package Does (Title Case)
 Version: 0.1.0
 Author: Jonathan H. Rystrøm
-Maintainer: jhvithamar@gmail.com
-Description: citework is a package for creating citation networks from 
-  lists of DOI's.
+Maintainer: Jonathan H. Rystrøm <jhvithamar@gmail.com>
+Description: citework is a package for creating citation networks from lists of DOI's.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
